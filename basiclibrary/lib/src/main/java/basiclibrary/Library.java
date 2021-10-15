@@ -51,6 +51,33 @@ public class Library {
         }
         return avg/arr.length;
     }
+    
+     public static int[] calculateMinAvg(int[][] arr){
+    float[] avgArr = new float[arr.length];
+    for(int i = 0; i < arr.length; i+=1){
+      avgArr[i] = calculateAvarage(arr[i]);
+    }
+    int minIdx = getMin(avgArr);
+    return arr[minIdx];
+  }
+
+  public static int getMin(float[] arr){
+    float min;
+    int idx;
+    if(arr.length < 2){
+      return 0;
+    }else{
+      min = arr[0];
+      idx = 0;
+    }
+    for(int i = 0; i < arr.length; i+=1){
+      if(arr[i] < min){
+        min = arr[i];
+        idx = i;
+      }
+    }
+    return idx;
+  }
 
 }
 
